@@ -1,0 +1,94 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(90deg,#74ebd5,#ACB6E5);
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    width: 200%;
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.top-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.main-btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.main-btn:hover {
+    background-color: #45a049;
+}
+
+.buttons-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons-vertical button {
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #4CAF50;
+    background-color: #e8f5e9;
+    cursor: pointer;
+}
+
+.buttons-vertical button:hover {
+    background-color: #c8e6c9;
+}
+
+.note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 16px;
+    text-align: center;
+}
+
+button {
+  display: flex;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #F54927;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.yes-no-buttons {
+  margin-top: 10px;
+}
