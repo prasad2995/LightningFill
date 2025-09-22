@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Refresh data when clicking Generate
   document.getElementById("generateBtn").addEventListener("click", () => {
     currentData = generateAllData();
-    alert("✅ New test data generated!");
+    /*alert("✅ New test data generated!");*/
   });
 
   // Fill all fields
@@ -52,9 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
 // Inject into page
 // ---------------------------
 function injectValueInPage(label, value) {
-  const allLabels = document.querySelectorAll("label");
   let targetInput = null;
 
+  // ---------------------------
+  // Try normal <label> lookup
+  // ---------------------------
+  const allLabels = document.querySelectorAll("label");
   for (const lbl of allLabels) {
     if (lbl.innerText.trim().toLowerCase().includes(label.toLowerCase())) {
       if (lbl.htmlFor) {
@@ -63,6 +66,17 @@ function injectValueInPage(label, value) {
         targetInput = lbl.querySelector("input, textarea, select");
       }
       if (targetInput) break;
+    }
+  }
+
+  // ---------------------------
+  // Try span-based XPath style lookup
+  // ---------------------------
+  if (!targetInput) {
+    const span = Array.from(document.querySelectorAll("span"))
+      .find(sp => sp.innerText.trim().toLowerCase() === label.toLowerCase());
+    if (span) {
+      targetInput = span.closest("div")?.querySelector("input, textarea, select");
     }
   }
 
