@@ -123,22 +123,23 @@ function fillAllFieldsInPage(data, fieldsMap) {
     });
   }
 
-  // Sequentially fill all fields
-  (async () => {
-    for (const label of Object.keys(fieldsMap)) {
-      const value = data[fieldsMap[label]];
-      if (!value) continue;
+// Sequentially fill all fields
+(async () => {
+  for (const label of Object.keys(fieldsMap)) {
+    let value = data[fieldsMap[label]];
+    if (!value) continue;
 
-      // Handle specific dropdown fields first
-      if (["Gender", "State", "Suffix", "U. S. Citizen", "Relationship", "Marital Status" ,"Country of Birth", "State of Birth", "State of Issue", "Work Status", "Trustee Level", "Premium Mode", "Valid Driver's License", "Beneficiary Level"].includes(label)) {
-        await fillDropdown(label, String(value));
-      } else {
-        fillInput(label, String(value));
-      }
+    // If this field has predefined dropdown values
+    if (dropdownValues[label]) {
+      // Pick a random value from the dropdownValues map
+      value = value || dropdownValues[label][Math.floor(Math.random() * dropdownValues[label].length)];
+      await fillDropdown(label, String(value));
+    } else {
+      fillInput(label, String(value));
     }
-    console.log("✅ All fields filled!");
-  })();
-}
+  }
+  console.log("✅ All fields filled!");
+})();
 
 // ---------------------------
 // Click all Yes/No buttons
@@ -171,6 +172,15 @@ function clickButtonsOnPage(choice) {
     });
   });
 }
+
+
+const dropdownValues = {
+  "Gender": ["Male", "Female"],
+  "State": ["California", "Texas", "Florida", "New York", "Illinois"],
+  "Suffix": ["II", "III", "IV", "V", "Jr", "Sr"]
+  // Add more dropdown fields here if needed
+};
+
 
 // ---------------------------
 // Field map
@@ -227,19 +237,7 @@ const fieldsMap = {
   "Secondary Address Line 2" : "secAddr2",
   "Secondary City" : "secCity",
   "Secondary State" : "secState",
-  "Secondary Zip Code" : "secZip",
-  "Suffix" : "suffix",
-  "U. S. Citizen" : "USCitizen",
-  "Relationship" : "relationship",
-  "Marital Status" : "maritalStatus",
-  "Country of Birth" : "countryOfBirth",
-  "State of Birth" : "stateOfBirth",
-  "Work Status" : "workStatus",
-  "Trustee Level" : "trusteeLevel",
-  "Premium Mode" : "premiumMode",
-  "Valid Driver's License" : "yesOrNo",
-  "State of Issue" : "stateOfIssue",
-  "Beneficiary Level" : "beneficiaryLevel"
+  "Secondary Zip Code" : "secZip"
 };
 
 // ---------------------------
@@ -323,18 +321,6 @@ function generateAllData() {
     currentDate: generateBirthDate("today"),
     parentGuardian: `${first} ${last} Parent`,
     greenCard: `GreenCard${String(randInt(10000000, 99999999))}`,
-    premiumAmountDCA: `${String(randInt(100000, 999999))}`,
-	suffix: rand(["II", "III", "IV", "V", "Jr", "Sr"]),
-	yesOrNo: rand(["Yes", "No"]),
-	relationship: rand(testData.relationship),
-	maritalStatus: rand(["Single", "Married"]),
-	countryOfBirth: rand(testData.countryOfBirth),
-	stateOfBirth: rand(testData.states),
-	workStatus: rand(testData.workStatus),
-	trusteeLevel: rand(["Primary", "Successor"]),
-	beneficiaryLevel: rand(["Primary", "Contingent"]),
-	premiumMode: rand(["Annual", "Monthly", "Quaterly"]),
-	USCitizen: rand(["U.S. Citizen", "Non-U.S. Citizen"]),
-	stateOfIssue: rand(testData.states)
+    premiumAmountDCA: `${String(randInt(100000, 999999))}`
   };
 }

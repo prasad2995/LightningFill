@@ -50,14 +50,6 @@
     "084000026",
     "031000503",
     "036001808"
-  ],
-  
-  "suffix": ["II", "III", "IV", "V", "Jr", "Sr"],
-  
-  "relationship" : ["Business Partner", "Child", "Domestic Partner", "Former Spouse", "Guardian", "GrandChild", "GrandParent", "Parent", "Power Of Attorney", "Sibling", "Spouse", "Other"],
-  
-  "countryOfBirth" : ["United States Of America", "Albania", "Argentina", "Australia", "Austria", "Belarus", "Belgium", "Bolivia", "Bolivia No VD", "Bosnia-Herzegovina", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Canada", "Canal Zone", "Channel Islands", "Chile", "Colombia", "Colombia No VD", "Costa Rica", "Croatia", "Czech Republic", "Denmark", "Dominican Republic", "Ecuador", "El Salvador", "Estonia", "Falkland Islands", "Faroe Islands", "Finland", "France", "French Guiana", "French West Indies", "Germany", "Gibraltar", "Greece", "Greenland", "Guatemala", "Guyana", "Haiti", "Haiti-Gourde", "Honduras", "Hong Kong ", "Hungary", "India", "Indonesia", "Ireland", "Italy", "Jamaica", "Japan", "Kazakhstan", "Kirghizia", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Malaysia", "Malta", "Mexico", "Micronesia/Marshall Islds", "Moldova", "Monaco", "Montenegro", "Netherland Antilles", "Netherlands", "New Zealand", "Nicaragua", "Northern Mariana Islands", "Norway", "Paraguay", "Peoples Republic of China", "Peru", "Philippines", "Poland", "Portugal", "Republic of Panama", "Republic of Tatarstan", "Romania", "Russia", "Russia - Krasnoyarsk", "Russia - Novosibirsk", "Russia - Other", "Russia - Stavropol", "Russia - Voronezh", "San Marino", "Serbia", "Singapore", "Slovakia", "Slovenia", "South Korea", "Spain", "Suriname", "Sweden", "Switzerland", "Taiwan", "Thailand", "Turkey", "Ukraine", "Uruguay", "Vatican City", "Venezuela", "Vietnam", "Western Samoa"],
-  
-  "workStatus" : ["Employed", "Retired", "Student", "Home Maker", "Other"]
- 
+  ]
+
 }
